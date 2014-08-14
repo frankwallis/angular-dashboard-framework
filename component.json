@@ -1,0 +1,15 @@
+{
+  "name": "angular-dashboard-framework",
+  "description": "angular-dashboard-framework for component",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+  },
+  "main": "dist/angular-dashboard-framework.min.js",
+  "scripts": [
+    "dist/angular-dashboard-framework.min.js"
+  ],
+  "styles": [],
+  "files": [
+  ]
+}
