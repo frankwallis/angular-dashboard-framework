@@ -5,11 +5,16 @@
   "keywords": [],
   "dependencies": {
   },
-  "main": "dist/angular-dashboard-framework.min.js",
+  "main": "component/index.js",
   "scripts": [
-    "dist/angular-dashboard-framework.min.js"
+    "component/index.js",
+    "src/scripts/*.js"
+  ],
+  "templates": [
+    "src/templates/*.html"
   ],
   "styles": [],
   "files": [
-  ]
+  ],
+  "repository": "de-git/angular-dashboard-framework"
 }
