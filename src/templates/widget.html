@@ -1,5 +1,5 @@
 <div class="widget panel panel-default">
-  <div class="panel-heading" ng-if="definition.title.trim() || editMode">
+  <div class="panel-heading" ng-if="!definition.hideTitle || editMode">
     <h3 class="panel-title">
     {{definition.title}}
       <span class="pull-right">

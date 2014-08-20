@@ -37,6 +37,11 @@ angular.module('adf')
             definition.title = w.title;
           }
 
+          // pass hideTitle
+          if (definition.hideTitle === undefined) {
+            definition.hideTitle = w.hideTitle;
+          }
+
           // pass edit mode
           $scope.editMode = $attr.editMode;
 
