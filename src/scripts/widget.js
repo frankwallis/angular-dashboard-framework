@@ -45,6 +45,9 @@ angular.module('adf')
           // pass edit mode
           $scope.editMode = $attr.editMode;
 
+          // pass canEdit
+          $scope.canEdit = (w.edit !== undefined);
+
           // pass copy of widget to scope
           $scope.widget = angular.copy(w);
 
