@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <a class="close-reveal-modal" ng-click="closeDialog()">&#215;</a>
+  <h4 class="modal-title">Add new widget</h4>
+</div>
+
+<div class="modal-body">
+  <div class="row" ng-repeat="(key, widget) in widgets">
+    <a class="small-4 columns" href="" ng-click="addWidget(key)">
+      {{widget.title}}
+    </a>      
+    <span ng-if="widget.description">
+        {{widget.description}}
+    </span>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="button no-margin small right center" ng-click="closeDialog()">Close</button>
+</div>

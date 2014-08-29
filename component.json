@@ -11,9 +11,12 @@
     "src/scripts/*.js"
   ],
   "templates": [
-    "src/templates/*.html"
+    "src/templates/*.html",
+    "src/templates/foundation/*.html"
   ],
-  "styles": [],
+  "styles": [
+    "src/styles/main.css"
+  ],
   "files": [
   ],
   "repository": "de-git/angular-dashboard-framework"

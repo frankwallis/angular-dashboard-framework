@@ -53,14 +53,43 @@ pre.edit {
   border-radius: 5px;
 }
 
-.widget h3 a {
+.widget h4 a {
   text-decoration: none;
 }
 
-.dashboard-container h1 a {
+.widget-border {  
+  border: 1px solid #CECECE;
+}
+
+.modal-header {
+    width: auto;  
+    border-bottom: 1px solid #CECECE;
+    margin-bottom: 1em;
+}
+
+.modal-body {
+    width: auto;  
+}
+
+.modal-footer {
+    width: auto;  
+    border-top: 1px solid #CECECE;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.dashboard-container h3 a {
   text-decoration: none;
 }
 
 .padding-bottom {
   padding-bottom: 5px;
+}
+
+.no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;  
+  max-width: 100%;
 }
