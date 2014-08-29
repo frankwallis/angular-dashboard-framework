@@ -4,6 +4,10 @@
   "version": "master",
   "keywords": [],
   "dependencies": {
+    "components/jquery": "1.11",
+    "components/font-awesome": "master",
+    "frankwallis/foundation": "5.4.0",
+    "frankwallis/angular-foundation-bower": "master"
   },
   "main": "component/index.js",
   "scripts": [
