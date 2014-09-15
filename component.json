@@ -6,7 +6,7 @@
   "dependencies": {
     "components/jquery": "1.11",
     "components/font-awesome": "master",
-    "frankwallis/foundation": "5.4.0",
+    "components/foundation": "5.4.3",
     "frankwallis/angular-foundation-bower": "master"
   },
   "main": "component/index.js",
