@@ -91,7 +91,7 @@ angular.module('adf')
         var template = locals['$tpl'];
         $element.html(template);
         if (content.controller) {
-          var templateCtrl = $controller(content.controller, locals);
+          var templateCtrl = $controller(content.controller, locals, false, content.controllerAs);
           $element.children().data('$ngControllerController', templateCtrl);
         }
         $compile($element.contents())(templateScope);
