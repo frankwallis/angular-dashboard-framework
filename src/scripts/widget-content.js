@@ -92,8 +92,10 @@ angular.module('adf')
         $element.html(template);
         if (content.controller) {
           var templateCtrl = $controller(content.controller, locals, false, content.controllerAs);
+          // TODO remove this post angular 1.3
           if (angular.isString(content.controllerAs))
             locals.$scope[content.controllerAs] = templateCtrl;
+          //\TODO
           $element.children().data('$ngControllerController', templateCtrl);
         }
         $compile($element.contents())(templateScope);
