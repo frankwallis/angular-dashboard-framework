@@ -5,8 +5,7 @@
   "keywords": [],
   "dependencies": {
     "components/jquery": "1.11",
-    "components/font-awesome": "master",
-    "frankwallis/angular-foundation-bower": "master"
+    "components/font-awesome": "master"
   },
   "main": "component/index.js",
   "scripts": [
