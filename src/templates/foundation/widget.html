@@ -1,5 +1,5 @@
-<div class="widget">
-  <div class="panel no-margin" ng-if="!definition.hideTitle || editMode">
+<div class="dashboard-widget">
+  <div class="panel dashboard-no-margin" ng-if="!definition.hideTitle || editMode">
     <h4>
         {{definition.title}}
       <span class="pull-right">
@@ -30,7 +30,7 @@
     </h4>
   </div>
   <div collapse="isCollapsed">
-    <div class="widget-border">
+    <div class="dashboard-widget-border">
       <adf-widget-content model="definition" content="widget" />
     </div>
   </div>

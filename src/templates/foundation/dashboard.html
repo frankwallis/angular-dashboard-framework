@@ -1,6 +1,6 @@
 <div class="dashboard-container">
 
-  <h3 class="dashboard-header row no-margin">
+  <h3 class="dashboard-header dashboard-no-margin row">
     <span class="dashboard-title" ng-if="!model.hideTitle">{{model.title}}</span>
     <span class="pull-right">
       <a href="" ng-if="editMode" title="add new widget" ng-click="addWidgetDialog()">
@@ -17,10 +17,10 @@
 
   <div class="dashboard" ng-class="editClass">
 
-    <div ng-repeat="row in model.rows" class="row no-margin" ng-class="row.styleClass">
-      <div ng-repeat="col in row.columns" class="column" ng-class="col.styleClass" ui-sortable="sortableOptions" ng-model="col.widgets">
-        <div class="widgets" ng-repeat="definition in col.widgets">
-          <adf-widget class="widget" definition="definition" column="col" edit-mode="{{editMode}}" collapsible="collapsible" />
+    <div ng-repeat="row in model.rows" class="row dashboard-no-margin" ng-class="row.styleClass">
+      <div ng-repeat="col in row.columns" class="dashboard-column" ng-class="col.styleClass" ui-sortable="sortableOptions" ng-model="col.widgets">
+        <div ng-repeat="definition in col.widgets">
+          <adf-widget class="dashboard-widget" definition="definition" column="col" edit-mode="{{editMode}}" collapsible="collapsible" />
         </div>
       </div>
     </div>
