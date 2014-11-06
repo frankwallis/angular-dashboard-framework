@@ -19,7 +19,7 @@
         </ul>
     </nav>
     <div class="dashboard-content" ng-class="editClass">
-        <div ng-repeat="row in model.rows" class="row dashboard-row dashboard-no-margin" ng-class="row.styleClass">
+        <div ng-repeat="row in model.rows" class="dashboard-row dashboard-no-margin" ng-class="row.styleClass">
           <div ng-repeat="col in row.columns" class="dashboard-column" ng-class="col.styleClass" ui-sortable="sortableOptions" ng-model="col.widgets">
             <div ng-repeat="definition in col.widgets" class="dashboard-cell">
               <adf-widget definition="definition" column="col" edit-mode="{{editMode}}" collapsible="collapsible" />
