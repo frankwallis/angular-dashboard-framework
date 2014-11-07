@@ -25,7 +25,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfWidgetContent', function($log, $q, $sce, $http, $templateCache, $compile, $controller, $injector, dashboard) {
+  .directive('adfWidgetContent', [ "$log", "$q", "$sce", "$http", "$templateCache", "$compile", "$controller", "$injector", "dashboard", function($log, $q, $sce, $http, $templateCache, $compile, $controller, $injector, dashboard) {
 
     function getTemplate(widget){
       var deferred = $q.defer();
@@ -129,4 +129,4 @@ angular.module('adf')
       }
     };
 
-  });
+  }]);

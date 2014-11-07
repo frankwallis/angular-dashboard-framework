@@ -25,7 +25,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfWidget', function($log, $modal, dashboard) {
+  .directive('adfWidget', [ "$log", "$modal", "dashboard", function($log, $modal, dashboard) {
 
     function preLink($scope, $element, $attr){
       var definition = $scope.definition;
@@ -144,4 +144,4 @@ angular.module('adf')
       }
     };
 
-  });
+  }]);

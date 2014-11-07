@@ -39,7 +39,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfDashboard', function($rootScope, $log, $modal, dashboard){
+  .directive('adfDashboard', [ "$rootScope", "$log", "$modal", "dashboard", function($rootScope, $log, $modal, dashboard){
 
     function copyWidgets(source, target){
       if ( source.widgets && source.widgets.length > 0 ){
@@ -104,7 +104,7 @@ angular.module('adf')
         collapsible: '@',
         adfModel: '='
       },
-      controller: function($scope){
+      controller: [ "$scope", function($scope){
         // sortable options for drag and drop
         $scope.sortableOptions = {
           connectWith: ".column",
@@ -200,7 +200,7 @@ angular.module('adf')
             addScope.$destroy();
           };
         };
-      },
+      }],
       link: function ($scope, $element, $attr) {
         // pass attributes to scope
         $scope.name = $attr.name;
@@ -208,4 +208,4 @@ angular.module('adf')
       },
       templateUrl: '../src/templates/dashboard.html'
     };
-  });
+  }]);
