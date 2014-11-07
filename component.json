@@ -5,7 +5,7 @@
   "keywords": [],
   "dependencies": {
     "components/jquery": "1.11",
-    "components/font-awesome": "master"
+    "components/font-awesome": "*"
   },
   "main": "component/index.js",
   "scripts": [
