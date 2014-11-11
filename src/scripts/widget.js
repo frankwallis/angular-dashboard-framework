@@ -1,18 +1,18 @@
 /*
  * The MIT License
- * 
+ *
  * Copyright (c) 2013, Sebastian Sdorra
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,15 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfWidget', [ "$log", "$modal", "dashboard", function($log, $modal, dashboard) {
+  .directive('adfWidget', [ "$log", "$modal", "dashboard", "adfTemplatePath", function($log, $modal, dashboard, adfTemplatePath) {
+
+    function stringToBoolean(string){
+      switch(string != null ? string.toLowerCase() : null){
+        case "true": case "yes": case "1": return true;
+        case "false": case "no": case "0": case null: return false;
+        default: return Boolean(string);
+      }
+    }
 
     function preLink($scope, $element, $attr){
       var definition = $scope.definition;
@@ -43,7 +51,9 @@ angular.module('adf')
           }
 
           // pass edit mode
-          $scope.editMode = $attr.editMode;
+          $attr.$observe('editMode', function(value){
+            $scope.editMode = stringToBoolean(value);
+          });
 
           // pass canEdit
           $scope.canEdit = (w.edit !== undefined);
@@ -63,17 +73,20 @@ angular.module('adf')
 
           // pass config to scope
           $scope.config = config;
-          
+
+          // convert collapsible to string
+          $scope.collapsible = stringToBoolean($scope.collapsible);
+
           // collapse
           $scope.isCollapsed = false;
         } else {
-          $log.warn('could not find widget ' + type);
+          $log.warn('could not find widget ' + definition.type);
         }
       } else {
         $log.debug('definition not specified, widget was probably removed');
       }
     }
-    
+
     function postLink($scope, $element, $attr) {
       var definition = $scope.definition;
       if (definition) {
@@ -88,7 +101,7 @@ angular.module('adf')
           }
           $element.remove();
         };
-        
+
         // bind reload function
         $scope.reload = function(){
           $scope.$broadcast('widgetReload');
@@ -97,17 +110,17 @@ angular.module('adf')
         // bind edit function
         $scope.edit = function() {
           var editScope = $scope.$new();
-          
+
           var opts = {
             scope: editScope,
-            templateUrl: '../src/templates/widget-edit.html'
+            templateUrl: adfTemplatePath + 'widget-edit.html'
           };
 
           var instance = $modal.open(opts);
           editScope.closeDialog = function() {
             instance.close();
             editScope.$destroy();
-            
+
             var widget = $scope.widget;
             if (widget.edit && widget.edit.reload){
               // reload content after edit dialog is closed
@@ -124,7 +137,7 @@ angular.module('adf')
       replace: true,
       restrict: 'EA',
       transclude: false,
-      templateUrl: '../src/templates/widget.html',
+      templateUrl: adfTemplatePath + 'widget.html',
       scope: {
         definition: '=',
         col: '=column',
@@ -132,16 +145,15 @@ angular.module('adf')
         collapsible: '='
       },
       compile: function compile($element, $attr, transclude) {
-        
+
         /**
          * use pre link, because link of widget-content
          * is executed before post link widget
-         */ 
+         */
         return {
           pre: preLink,
           post: postLink
         };
       }
     };
-
   }]);
