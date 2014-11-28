@@ -1,19 +1,57 @@
-<div class="modal-header">
-  <a class="close-reveal-modal" ng-click="closeDialog()">&#215;</a>
-  <h4 class="modal-title">Add new widget</h4>
-</div>
-
-<div class="modal-body">
-  <div class="row" ng-repeat="(key, widget) in widgets">
-    <a class="small-4 columns" href="" ng-click="addWidget(key)">
-      {{widget.title}}
-    </a>      
-    <span ng-if="widget.description">
-        {{widget.description}}
-    </span>
-  </div>
-</div>
-
-<div class="modal-footer">
-  <button type="button" class="button no-margin small right center" ng-click="closeDialog()">Close</button>
-</div>
+<section class="menu-dropdown modal-dialog add-widget">
+    <header class="menu-dropdown-header">
+        <div class="menu-heading-container">
+            <h3 class="modal-title">Modules to add to your hub page</h3>
+        </div>
+        <div class="close-button-container">
+            <a class="icon close-button" ng-click="closeDialog()">
+                <span class="button-item-text">Close</span>
+            </a>
+        </div>
+    </header>
+    <div class="menu-dropdown-body">
+        <div role="form" class="controls">
+            <div class="add-control control-container" ng-repeat="(key, widget) in widgets">
+               <!--TODO: Move ng-show logic to controller and rewrite-->
+                <div class="visibility-wrapper" ng-show="
+                    !(model.rows[0].columns[0].widgets[0].title == widget.title
+                    || model.rows[0].columns[0].widgets[1].title == widget.title
+                    || model.rows[0].columns[1].widgets[0].title == widget.title
+                    || model.rows[0].columns[1].widgets[1].title == widget.title)
+                    || widget.edit !== undefined">
+                    <div class="control">
+                        <a class="icon add-widget" href=""  ng-click="addWidget(key)">
+                            <span class="button-item-text">Add</span>
+                        </a>
+                    </div>
+                    <label class="control-label">
+                        <span class="key">{{widget.title}}</span>
+                        <span class="description">{{widget.description}}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="controls disabled-controls">
+            <div class="disabled-control control-container" ng-repeat="(key, widget) in widgets">
+                <!--TODO: Move ng-show logic to controller and rewrite-->
+                <div class="visibility-wrapper" ng-show="
+                  (model.rows[0].columns[0].widgets[0].title == widget.title
+                    || model.rows[0].columns[0].widgets[1].title == widget.title
+                    || model.rows[0].columns[1].widgets[0].title == widget.title
+                    || model.rows[0].columns[1].widgets[1].title == widget.title)
+                    && widget.edit == undefined">
+                    <div class="control disabled-control">
+                        <a class="icon add-widget disabled" href="">
+                            <span class="button-item-text">Add</span>
+                        </a>
+                    </div>
+                    <label class="control-label">
+                        <span class="key">{{widget.title}}</span>
+                        <span class="description">{{widget.description}}</span>
+                        <span class="max-widgets-marker">(Max added)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

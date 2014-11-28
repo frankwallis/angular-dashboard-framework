@@ -1,18 +1,19 @@
-<div class="modal-header">
-  <a class="close-reveal-modal" ng-click="closeDialog()">&#215;</a>
-  <h4 class="modal-title">{{widget.title}}</h4>
-</div>
-<div class="modal-body">
-  <form role="form">
-    <div class="form-group" ng-if="!definition.hideTitle">
-      <label for="widgetTitle">Title</label>
-      <input type="text" class="form-control" id="widgetTitle" ng-model="definition.title" placeholder="Enter title" required="">
+<section class="menu-dropdown modal-dialog configure-widget">
+    <div class="menu-dropdown-header">
+        <div class="menu-heading-container">
+            <h3 class="modal-title">{{widget.title}}</h3>
+        </div>
+        <div class="close-button-container">
+            <a class="icon close-button" ng-click="closeDialog()">
+                <span class="button-item-text">Close</span>
+            </a>
+        </div>
     </div>
-  </form>
-  <div ng-if="widget.edit">
-    <adf-widget-content model="definition" content="widget.edit" />
-  </div>
-</div>
-<div class="modal-footer">
-  <button type="button" class="button dashboard-no-margin small right center" ng-click="closeDialog()">Close</button>
-</div>
+    <div class="menu-dropdown-body">
+        <h4 class="menu-dropdown-subheading">Module Title:</h4>
+        <div class="widget-title-field">
+              <input type="text" id="widgetTitle" ng-model="definition.title" placeholder="Enter title" required="">
+        </div>
+        <adf-widget-content model="definition" content="widget.edit" />
+    </div>
+</section>

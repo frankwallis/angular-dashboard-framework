@@ -7,12 +7,14 @@
             </a>
             </li>
             <li class="menu-item">
-              <a class="icon show-edit-widget-dialog" href="" ng-if="editMode" title="edit dashboard" ng-click="editDashboardDialog()">
+              <a class="icon show-edit-dialog" href="" ng-if="editMode" title="edit dashboard" ng-click="editDashboardDialog()">
                     <span class="menu-item-text">Widget Settings</span>
                 </a>
             </li>
             <li class="menu-item">
-              <a class="icon toggle-edit-widgets-mode" href="" title="{{editMode ? 'disable edit mode' : 'enable edit mode'}}" ng-click="toggleEditMode()">
+              <a class="icon toggle-mode" 
+                 ng-class="'mode-' + (editMode ? 'edit' : 'view')" 
+                 href="" title="{{editMode ? 'disable edit mode' : 'enable edit mode'}}" ng-click="toggleEditMode()">
                     <span class="menu-item-text">{{editMode ? 'Disable Edit Mode' : 'Enable Edit Mode'}}</span>
                </a>
             </li>

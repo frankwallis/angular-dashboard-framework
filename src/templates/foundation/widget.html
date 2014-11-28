@@ -4,10 +4,10 @@
             ng-class="'contains-' + 
                         (2 + (widget.reload ? 1 : 0) + (canEdit ? 1 : 0) + (collapsible ? 1 : 0)) 
                         + '-menu-items'">
-        <h2 ng-attr-title="{{definition.title}}">
+        <h2 class="widget-title" ng-attr-title="{{definition.title}}">
             {{definition.title}}
         </h2>
-        <nav>
+        <nav class="widget-edit-menu">
             <ul class="menu"> 
                 <li class="menu-item" ng-if="widget.reload">
                     <a href="" class="icon widget-refresh" title="reload widget content" ng-click="reload()">
