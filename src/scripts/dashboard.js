@@ -107,8 +107,8 @@ angular.module('adf')
       controller: [ "$scope", function($scope){
         // sortable options for drag and drop
         $scope.sortableOptions = {
-          connectWith: ".column",
-          handle: ".fa-arrows",
+          connectWith: ".dashboard-column",
+          handle: ".widget-move",
           cursor: 'move',
           tolerance: 'pointer',
           placeholder: 'placeholder',

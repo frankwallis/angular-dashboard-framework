@@ -22,6 +22,22 @@
  THE SOFTWARE.
 */
 
+
+/* FW - added 100% heights to these so they don't shrink to zero height
+    this is needed so you can drag a widget into an empty column */
+.dashboard-content {
+    height: 100%;
+}
+
+.dashboard-column {
+    height: 100%;
+}
+
+.dashboard-row {
+    height: 100%;
+}
+/* \FW */
+
 .dashboard-edit .dashboard-column {
   min-height: 120px;
   border: 1px #ccc dashed;
