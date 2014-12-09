@@ -25,5 +25,5 @@
 'use strict';
 
 angular.module('adf', ['adf.provider', 'ui.bootstrap', 'ui.sortable'])
-  .value('adfTemplatePath', '../src/templates/foundation/')
+  .value('adfTemplatePath', '../src/templates/')
   .value('adfVersion', '<<adfVersion>>');
