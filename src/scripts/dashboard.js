@@ -185,6 +185,7 @@ angular.module('adf')
           $scope.changeStructure = function(name, structure){
             $log.info('change structure to ' + name);
             changeStructure(model, structure);
+            model.structure = name;
           };
           editDashboardScope.closeDialog = function(){
             instance.close();

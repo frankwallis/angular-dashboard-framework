@@ -1,7 +1,7 @@
 <section class="menu-dropdown modal-dialog configure-dashboard-layout">
     <header class="menu-dropdown-header">
         <div class="heading-container">
-            <h3 class="modal-title">Edit Dashboard</h3>
+            <h3 class="modal-title">Change Dashboard Layout</h3>
         </div>
         <div class="close-button-container">
             <a class="icon close-button" ng-click="closeDialog()">
@@ -9,24 +9,25 @@
             </a>
         </div>
     </header>
-    <div class="menu-dropdown-body">
-        <h4 class="menu-dropdown-subheading">Structure</h4>
-        <form class="controls" role="form">
-            <div class="toggle-control control-container" ng-repeat="(key, structure) in structures">
-                <div class="control switch round tiny">
-                    <input id="{{'switch' + $index}}" 
-                           type="radio" 
-                           value={{key}}
-                           ng-change="changeStructure(key, structure)"
-                           ng-model="model.structure"
-                           name="structuresGroup"/>
-                    <label for="{{'switch' + $index}}"></label>
-                </div>
-                <label class="control-label">
-                    <span class="key">{{key}}</span>
-                    <span class="description">Description of layout.</span>
-                </label>
-            </div>
-        </form>
+    <div class="menu-dropdown-body layout-instructions">
+        <p class="menu-dropdown-info">
+            The dashboard layout is based on a grid of twelve columns. You can choose a new layout by selecting 
+            one of the grids below:
+        </p>
+        <div class="layout-links">
+            <a class="dashboard-structure-selector selected-{{model.structure == key}}" 
+               ng-repeat="(key, structure) in structures" 
+               ng-click="changeStructure(key, structure)">
+                <table ng-class="'rows-' + structure.rows.length">
+                    <tr ng-repeat="row in structure.rows">
+                        <td ng-repeat="column in row.columns" class="{{column.styleClass}}"></td>
+                    </tr>
+                </table>
+            </a> 
+        </div>
+        <div class="menu-dropdown-info layout-description">
+            <span>Selected layout:</span>
+            <span class="important-info">{{model.structure}}</span>
+        </div>
     </div>
 </section>
