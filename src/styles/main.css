@@ -31,6 +31,7 @@
 
 .dashboard-column {
     height: 100%;
+    min-height: 10rem;
 }
 
 .dashboard-row {
